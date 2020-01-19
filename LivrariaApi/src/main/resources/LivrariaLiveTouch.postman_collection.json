@@ -1,0 +1,731 @@
+{
+	"info": {
+		"_postman_id": "452646ca-6878-4bcf-8015-4b1f9de3326d",
+		"name": "LivrariaLiveTouch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Selecionar Todos os Livros",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/listarlivros",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"listarlivros"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Selecionar Todos os Livros",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/listarlivros",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"listarlivros"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Jan 2020 08:22:30 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 13,\n        \"titulo\": \"Renan\",\n        \"autor\": {\n            \"id\": 14,\n            \"nome\": \"Renan 2\",\n            \"dataNasc\": \"31-12-1989\",\n            \"paisOrigem\": \"Brasil\"\n        },\n        \"dataPublicacao\": \"DD-MM-AAAA\",\n        \"edicao\": \"Edição\",\n        \"codigoISBN\": \"Código\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Selecionar Livro por ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n    \t\"id\": 13\r\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/listarlivro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"listarlivro"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Selecionar Livro por ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n    \t\"id\": 13\r\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/listarlivro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"listarlivro"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"id\": 13,\r\n    \"titulo\": \"Renan\",\r\n    \"autor\": {\r\n        \"id\": 14,\r\n        \"nome\": \"Renan 2\",\r\n        \"dataNasc\": \"31-12-1989\",\r\n        \"paisOrigem\": \"Brasil\"\r\n    },\r\n    \"dataPublicacao\": \"DD-MM-AAAA\",\r\n    \"edicao\": \"Edição\",\r\n    \"codigoISBN\": \"Código\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Cadastrar um Livro",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"titulo\": \"Título\",\r\n        \"dataPublicacao\": \"DD-MM-AAAA\",\r\n        \"edicao\": \"Edição\",\r\n        \"codigoISBN\": \"Código\" ,\r\n        \"autor\": {\r\n        \t\"id\": 0,\r\n        \t\"nome\": \"Nome Autor\",\r\n        \t\"dataNasc\": \"DD-MM-AAAA\",\r\n        \t\"paisOrigem\": \"País de Orígem Autor\",\r\n        \t\"livrosAutor\": null\r\n        }\r\n    }\r\n    \r\n    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/cadastrarlivro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cadastrarlivro"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Cadastrar um Livro",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"titulo\": \"Novo Livro\",\r\n        \"dataPublicacao\": \"19-01-2020\",\r\n        \"edicao\": \"3 Edição\",\r\n        \"codigoISBN\": \"ABC123\" ,\r\n        \"autor\": {\r\n        \t\"id\": 9,\r\n        \t\"nome\": \"Nome Autor\",\r\n        \t\"dataNasc\": \"DD-MM-AAAA\",\r\n        \t\"paisOrigem\": \"País de Orígem Autor\",\r\n        \t\"livrosAutor\": null\r\n        }\r\n    }\r\n    \r\n    ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/cadastrarlivro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cadastrarlivro"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Jan 2020 08:24:29 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 15,\n    \"titulo\": \"Novo Livro\",\n    \"autor\": {\n        \"id\": 9,\n        \"nome\": \"Renan\",\n        \"dataNasc\": \"31-12-1989\",\n        \"paisOrigem\": \"Brasil\"\n    },\n    \"dataPublicacao\": \"19-01-2020\",\n    \"edicao\": \"3 Edição\",\n    \"codigoISBN\": \"ABC123\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Atualizar um Livro",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"id\": 0,\r\n        \"titulo\": \"Título\",\r\n        \"dataPublicacao\": \"DD-MM-AAAA\",\r\n        \"edicao\": \"Edição\",\r\n        \"codigoISBN\": \"Código\" ,\r\n        \"autor\": {\r\n        \t\"id\": 0,\r\n        \t\"nome\": \"Nome Autor\",\r\n        \t\"dataNasc\": \"DD-MM-AAAA\",\r\n        \t\"paisOrigem\": \"País de Orígem Autor\",\r\n        \t\"livrosAutor\": null\r\n        }\r\n    }\r\n    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/atualizarlivro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"atualizarlivro"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Atualizar um Livro",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\": 13,\r\n        \"titulo\": \"Título\",\r\n        \"dataPublicacao\": \"DD-MM-AAAA\",\r\n        \"edicao\": \"Edição\",\r\n        \"codigoISBN\": \"Código\" ,\r\n        \"autor\": {\r\n        \t\"id\": 9,\r\n        \t\"nome\": \"Nome Autor\",\r\n        \t\"dataNasc\": \"DD-MM-AAAA\",\r\n        \t\"paisOrigem\": \"País de Orígem Autor\",\r\n        \t\"livrosAutor\": null\r\n        }\r\n    }\r\n    ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/atualizarlivro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"atualizarlivro"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Jan 2020 08:30:28 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 13,\n    \"titulo\": \"Título\",\n    \"autor\": {\n        \"id\": 9,\n        \"nome\": \"Renan\",\n        \"dataNasc\": \"31-12-1989\",\n        \"paisOrigem\": \"Brasil\"\n    },\n    \"dataPublicacao\": \"DD-MM-AAAA\",\n    \"edicao\": \"Edição\",\n    \"codigoISBN\": \"Código\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Remover um Livro por ID",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n    \t\"id\": 13\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/removerlivro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"removerlivro"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Remover um Livro por ID",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n    \t\"id\": 13\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/removerlivro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"removerlivro"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Jan 2020 08:33:26 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Cadastrar Autor",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"nome\": \"Nome Autor\",\r\n        \"dataNasc\": \"DD-MM-AAAA\",\r\n        \"paisOrigem\": \"País\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/cadastrarautor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cadastrarautor"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Cadastrar Autor",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"nome\": \"Renan Santora\",\r\n        \"dataNasc\": \"31-12-1989\",\r\n        \"paisOrigem\": \"Brasil\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/cadastrarautor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cadastrarautor"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Jan 2020 08:34:25 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 16,\n    \"nome\": \"Renan Santora\",\n    \"dataNasc\": \"31-12-1989\",\n    \"paisOrigem\": \"Brasil\",\n    \"livrosAutor\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Selecionar Todos os Autores",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/listarautores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"listarautores"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Selecionar Todos os Autores",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/listarautores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"listarautores"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Jan 2020 08:35:36 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 9,\n        \"nome\": \"Renan\",\n        \"dataNasc\": \"31-12-1989\",\n        \"paisOrigem\": \"Brasil\",\n        \"livrosAutor\": [\n            {\n                \"id\": 15,\n                \"titulo\": \"Novo Livro\",\n                \"dataPublicacao\": \"19-01-2020\",\n                \"edicao\": \"3 Edição\",\n                \"codigoISBN\": \"ABC123\"\n            }\n        ]\n    },\n    {\n        \"id\": 14,\n        \"nome\": \"Renan 2\",\n        \"dataNasc\": \"31-12-1989\",\n        \"paisOrigem\": \"Brasil\",\n        \"livrosAutor\": []\n    },\n    {\n        \"id\": 16,\n        \"nome\": \"Renan Santora\",\n        \"dataNasc\": \"31-12-1989\",\n        \"paisOrigem\": \"Brasil\",\n        \"livrosAutor\": []\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Selecionar Autor por ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " \r\n\t{\r\n    \t\"id\": 9\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api//listarautor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"",
+						"listarautor"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Selecionar Autor por ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " \r\n\t{\r\n    \t\"id\": 9\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api//listarautor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"",
+								"listarautor"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Jan 2020 08:36:08 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 9,\n    \"nome\": \"Renan\",\n    \"dataNasc\": \"31-12-1989\",\n    \"paisOrigem\": \"Brasil\",\n    \"livrosAutor\": [\n        {\n            \"id\": 15,\n            \"titulo\": \"Novo Livro\",\n            \"dataPublicacao\": \"19-01-2020\",\n            \"edicao\": \"3 Edição\",\n            \"codigoISBN\": \"ABC123\"\n        }\n    ]\n}"
+				}
+			]
+		}
+	],
+	"protocolProfileBehavior": {}
+}
