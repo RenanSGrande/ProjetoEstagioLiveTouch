@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -32,6 +33,9 @@ public class Livro {
 
 	@Column(name = "LIV_COD_ISBN")
 	private String codigoISBN;
+
+	@Column(name = "LIV_DESC", length = 1000)
+	private String descricao;
 
 	public String getTitulo() {
 		return titulo;
@@ -97,6 +101,14 @@ public class Livro {
 		if (id != other.id)
 			return false;
 		return true;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 }
