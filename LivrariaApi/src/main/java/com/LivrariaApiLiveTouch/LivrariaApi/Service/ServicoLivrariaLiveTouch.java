@@ -86,9 +86,13 @@ public class ServicoLivrariaLiveTouch {
 
 	public void deletarLivroPorID(long id) throws LivrariaLiveTouchException {
 		Livro livro = buscarLivroPorID(id);
-		livro.getAutor().getLivrosAutor().remove(livro);
-		salvarAutorInterno(livro.getAutor());
-		this.livroRepository.deleteById(id);
+		if (livro != null) {
+			livro.getAutor().getLivrosAutor().remove(livro);
+			salvarAutorInterno(livro.getAutor());
+			this.livroRepository.deleteById(id);
+		} else {
+			throw new LivrariaLiveTouchException(IDINVALIDO);
+		}
 	}
 
 	public Autor salvarAutor(Autor autor) throws LivrariaLiveTouchException {
